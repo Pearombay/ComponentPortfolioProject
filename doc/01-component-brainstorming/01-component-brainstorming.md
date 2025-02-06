@@ -1,12 +1,10 @@
 # Portfolio Part 1: Component Brainstorming
 
-- **Name**: <!-- TODO: fill with first and last name (e.g., Brutus Buckeye) then delete this comment -->
-- **Dot Number**: <!-- TODO: fill with OSU dot number (e.g., buckeye.17) then delete this comment -->
-- **Due Date**: <!-- TODO: fill with due date and time (e.g., 10/17 @ 3:10 PM EST) then delete this comment -->
+- **Name**: Pierre van Zyl
+- **Dot Number**: vanzyl.3
+- **Due Date**: 2/4/2025
 
 ## Assignment Overview
-
-<!-- TODO: read the assignment overview then delete this comment -->
 
 The overall goal of the portfolio project is to have you design and implement
 your own OSU component. There are no limits to what you choose to design and
@@ -29,8 +27,6 @@ implement.
 
 ## Assignment Checklist
 
-<!-- TODO: browse the checklist then delete this comment -->
-
 To be sure you have completed everything on this assignment, we have littered
 this document with TODO comments. You can browse all of them in VSCode by
 opening the TODOs window from the sidebar. The icon looks like a tree and will
@@ -52,8 +48,6 @@ to the tree diagram (you may remove this one as well):
 
 ## Assignment Learning Objectives
 
-<!-- TODO: read the assignment learning objectives then delete this comment -->
-
 Without learning objectives, there really is no clear reason why a particular
 assessment or activity exists. Therefore, to be completely transparent, here is
 what we're hoping you will learn through this particular aspect of the portfolio
@@ -66,8 +60,6 @@ project. Specifically, students should be able to:
    discipline
 
 ## Assignment Rubric: 10 Points
-
-<!-- TODO: read the assignment rubric then delete this comment -->
 
 Again, to be completely transparent, most of the portfolio project, except the
 final submission, is designed as a formative assessment. Formative assessments
@@ -106,23 +98,18 @@ Below is further rationale/explanation for the rubric items above:
 > brainstorming. Plus it helps us get to know you better! Feel free to share
 > images in this section.
 
-<!-- TODO: briefly talk about your interests then delete this comment.
-Also, protip: you can preview what your response looks like by hitting
-the magnifying glass icon in the upper-right corner or pressing CTRL+K and
-then V. This kind of button combination is called a chord, for whatever
-reason -->
+Honestly at this point I am still mostly unsure what I want out of a career. I
+am pretty sure I want to be a software developer, but I would also be happy to
+do anything in engineering. Some of my personal activities include swimming and
+playing Dungeons and Dragons with friends.
 
 ## Assignment
-
-<!-- TODO: read the assignment section then delete this comment -->
 
 As previously stated, you are tasked with brainstorming 3 possible components.
 To aid you in this process, we have provided [some example components][example-components]
 that may help you in your brainstorming. All of these components were made at
 some point by one of your peers, so you should feel confident that you can
 accomplish any of them.
-
-<!-- TODO: browse the list of possible projects then delete this comment -->
 
 There is no requirement that you use any of the components listed above.
 If you want to model something else, go for it! Very common early object
@@ -131,8 +118,6 @@ etc. Make of this whatever seems interesting to you, and keep in mind that
 you're just brainstorming right now. You do not have to commit to anything.
 
 ### Example Component
-
-<!-- TODO: review this example component then delete this comment -->
 
 To help you brainstorm a few components, we've provided an example below of a
 component you already know well: NaturalNumber. We highly recommend that you
@@ -200,68 +185,124 @@ will likely refine your design to make your implementation easier to use.
 
 > Please use this section to share your designs.
 
-- Component Design #1: <!-- TODO: give component a name then delete this comment -->
+- Component Design #1: PlayerChar
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - The purpose of this method would be to model a player character from a
+    game like dungeons and dragons. There should be several different stats
+    such as health and inventory, and the ability to reset certain stats back
+    to a max/default value.
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    - `void setDefault()`: sets all current, mutable stat values to be their
+    new default values
+    - `void rest()`: resets all current, mutable stat values back to their
+    default values
+    - `void setLevel(int)`: sets the current level to the int parameter
+    - `void setHP(int)`: sets the current health to the int parameter
+    - `void addAbility(String, int, int)`: adds an ability with the name of the
+    first parameter, current uses of the second parameter, and max uses of the
+    third parameter
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - `boolean heal(int)`: increases (or decreases) the current health by the
+    int parameter
+    - `boolean use(String)`: "uses" an ability and lowers the current uses by 1
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, this component should have values that can be easily changed
+      without having to make an entire new PlayerChar, such as the frequent
+      changing of health or use of abilities.
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - I can see this being made quite easily with the use of the OSU Map and
+      Map.Pair, however a 2D array may also work. It may also require an
+      internal PlayerChar.Ability "pair" to help keep track of stats, or
+      PlayerChar.Loot similar to a map to keep track of loot/inventory.
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - I am unsure but I do not believe so
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, the kernal methods are used for the general manipulation of the
+      component, while the kernal methods are used for more specifics. For
+      example, heal() heals or damages a specific amount rather than just setting the
+      health to a specific value like setHP().
 
-- Component Design #2: <!-- TODO: give component a name then delete this comment -->
+- Component Design #2: Loot
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - This component is meant to be used as a sample storage that contains
+    items, their amounts, and their descriptions
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    - `void add(String, String, int)`: adds the desired item with
+    parameters listed in the order "name, description, string"
+    - `Loot.Item removeAny()`: removes and returns an arbitrary item
+    - `boolean hasItem(String)`: returns if there is an item with the name of
+    the parameter String
+    - `String description(String)`: returns the description of the item with
+    the name of the parameter String
+    - `int amount(String)`: returns the amount of the item with
+    the name of the parameter String
+    - `int size()`: returns the number of items in this
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - `void amountChange(String, int)`: changes the amount of the item with
+    the name of the parameter String, adding the int value
+    - `Loot.Item remove(String)`: removes and returns an item with the name of
+    the String parameter
+    - `int total()`: returns the total number of items in this, including
+    individual amounts of items
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, this would have to easily change as items are added or changed
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, it would use Loot.Item similar to Map.Pair, to store the name,
+      amount, and description of all items in the loot
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - I do not believe so
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, the kernal methods are able to do the base functions required to
+      manipulate the component, but altering them in more specific ways
+      requires the secondary methods. For example, you can remove a specific
+      item with remove() by removing arbitrary items until you find the
+      matching item, then adding all the other items back into the loot.
 
-- Component Design #3: <!-- TODO: give component a name then delete this comment -->
+- Component Design #3: Roller
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - A component meant to mimic the use of rolling a die with the ability to
+    add modifiers like +2 or advantage
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    - `void setMax(int)`: sets the maximum possible roll value (such as 6 for a
+    d6, or standard die)
+    - `void setVantage(int)`: sets the number of times the die will be rolled
+    with advantage or disadvantage. Positive numbers means take the highest
+    value out of the parameter number of rolls +1, and if negative then the
+    lowest value out of the parameter number of rolls -1. 0 would just be one
+    single roll.
+    - `void setMod(int)`: sets the number to be added to the roll upon rolling
+    - `int roll()`: rolls the die according to the specifications
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - `int rollMod(int)`: rolls the die and returns the total value plus the
+    integer used in the parameter
+    - `int rollMany(int)`: rolls the die a number of times listed in the
+    parameter and returns the total value
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - While in the current explanation it is, I believe it could be easily
+      made immutable with a more complex constructor
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - No, all methods work with integers and the Roller
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - I am unsure
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, all of the secondary methods can be made using the kernal methods,
+      the original component, and addition. For example, rollMany can be
+      implemented by repeatedly calling roll and adding the results together.
 
 ## Post-Assignment
 
@@ -269,8 +310,6 @@ The following sections detail everything that you should do once you've
 completed the assignment.
 
 ### Changelog
-
-<!-- TODO: create CHANGELOG then delete this comment -->
 
 At the end of every assignment, you should update the
 [CHANGELOG.md](../../CHANGELOG.md) file found in the root of the project folder.
@@ -309,8 +348,6 @@ of development.
 
 ### Submission
 
-<!-- TODO: read the submission instructions then delete this comment -->
-
 If you have completed the assignment using this template, we recommend that
 you convert it to a PDF before submission. If you're not sure how, check out
 this [Markdown to PDF guide][markdown-to-pdf-guide]. However, PDFs should be
@@ -318,8 +355,6 @@ created for you automatically every time you save, so just double check that
 all your work is there before submitting. For future assignments, you will
 just be submitting a link to a pull request. This will be the only time
 you have to submit any PDFs.
-
-<!-- TODO: upload a PDF of this document and the CHANGELOG to Carmen then delete this comment -->
 
 ### Peer Review
 
